@@ -1,0 +1,10 @@
+query ProductBySlug($slug: String) {
+  product(slug: $slug, channel: "uk") {
+    id
+    name
+    description
+    media {
+      url
+    }
+  }
+}

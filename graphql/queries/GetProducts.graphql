@@ -1,0 +1,43 @@
+query GetProducts($first: Int, $filter: ProductFilterInput, $sortBy: ProductOrder) {
+  products(first: $first, channel: "uk", filter: $filter, sortBy: $sortBy) {
+    edges {
+      node {
+        id
+        name
+        description
+        slug
+        weight {
+          unit
+          value
+        }
+        rating
+        pricing {
+          discount {
+            gross {
+              amount
+            }
+            currency
+          }
+          onSale
+        }
+        isAvailable
+        media {
+          Large: url
+          alt
+        }
+        availableForPurchase
+        isAvailableForPurchase
+        thumbnail(size: 100) {
+          url
+          alt
+        }
+        category {
+          name
+        }
+      }
+    }
+    pageInfo {
+      hasNextPage
+    }
+  }
+}

@@ -4,11 +4,13 @@
 /node_modules
 /.pnp
 .pnp.js
+generated
 
 # testing
 /coverage
 
 # next.js
+next.config.js
 /.next/
 /out/
 
@@ -26,7 +28,9 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # local env files
-.env*.local
+.env
+.graphqlrc.yaml
+graphql.schema.json
 
 # vercel
 .vercel
