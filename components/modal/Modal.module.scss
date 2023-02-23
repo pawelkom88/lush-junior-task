@@ -1,0 +1,27 @@
+@import "@styles/mixins";
+
+.modal {
+  position: relative;
+  width: clamp(22rem, 50%, 84rem);
+  min-height: 20rem;
+  @include flex(center, center);
+  border: none;
+  z-index: 4;
+  animation: fade-in 0.3s ease-in-out;
+}
+
+.button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

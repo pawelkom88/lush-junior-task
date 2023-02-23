@@ -1,0 +1,43 @@
+@import "styles/mixins";
+@import "styles/variables";
+
+.hero {
+  height: calc(100vh - $headers-height); //72px header height
+  @include flex(center, center);
+  flex-direction: column;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/images/hero.webp") no-repeat center center;
+  padding: 0 1rem;
+  text-align: center;
+  overflow: hidden;
+
+  &-heading {
+    font-family: "Angleton", sans-serif;
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: bold;
+    color: $brand-secondary;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  &-subheading {
+    font-size: clamp(1rem, 0.8214rem + 0.5714vw, 1.5rem);
+    color: $brand-secondary;
+  }
+}
+
+.cta {
+  font-weight: bold;
+  color: $brand-primary;
+  background-color: $brand-secondary;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  @include transition(all, 0.4s, ease-in-out);
+
+  &:hover {
+    background-color: $brand-primary;
+    color: $brand-secondary;
+  }
+}

@@ -12,6 +12,14 @@ query GetProducts($first: Int, $filter: ProductFilterInput, $sortBy: ProductOrde
         }
         rating
         pricing {
+          priceRange {
+            start {
+              gross {
+                amount
+                currency
+              }
+            }
+          }
           discount {
             gross {
               amount
@@ -27,7 +35,7 @@ query GetProducts($first: Int, $filter: ProductFilterInput, $sortBy: ProductOrde
         }
         availableForPurchase
         isAvailableForPurchase
-        thumbnail(size: 100) {
+        thumbnail(size: 300) {
           url
           alt
         }
@@ -38,6 +46,10 @@ query GetProducts($first: Int, $filter: ProductFilterInput, $sortBy: ProductOrde
     }
     pageInfo {
       hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
     }
+    totalCount
   }
 }

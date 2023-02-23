@@ -1,0 +1,25 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+.container {
+  width: 100%;
+  min-height: 70vh;
+  @include flex(center, center);
+}
+
+.spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0.2rem solid transparent;
+  border-color: $brand-secondary;
+  border-top-color: yellow;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: spin 1s linear;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

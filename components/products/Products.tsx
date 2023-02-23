@@ -1,7 +1,9 @@
 import { useGetProductsQuery } from "@generated/api";
-import Image from "next/image";
-import Link from "next/link";
+import Spinner from "@components/spinner/Spinner";
+import Modal from "@components/modal/Modal";
+import classes from "./Products.module.scss";
 import { numberOfProducts } from "@utils/utils";
+import Product from "@components/product/Product";
 
 type ProductsProps = {
   keyword: string;
@@ -16,33 +18,20 @@ export default function Products({ keyword }: ProductsProps) {
     },
   });
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error</p>;
+  if (loading) return <Spinner />;
+  if (error) return <Modal>Coul not fetch data. Please try again later.</Modal>;
 
-  if (data) {
-    const products = data.products?.edges || [];
+  const products = data?.products?.edges || [];
+  const total = data?.products?.totalCount;
 
-    return (
-      <ul>
-        {products?.length > 0 &&
-          products.map(({ node: { id, name, thumbnail, category, description, slug } }) => {
-            return (
-              <li key={id}>
-                <a>
-                  <div>
-                    <p>{name}</p>
-                    <p>{category?.name}</p>
-                    {/* <p>{description}</p> */}
-                  </div>
-                </a>
-                <Image width={200} height={200} src={thumbnail?.url} alt={name as string} />
-                <Link href={`/product/${slug}`}>more</Link>
-              </li>
-            );
-          })}
+  return (
+    <section id="products">
+      <p>Available products: {total}</p>
+      <ul className={classes.products}>
+        {products.map(({ node: product }) => {
+          return <Product key={product.id} product={product} />;
+        })}
       </ul>
-    );
-  }
-
-  return null;
+    </section>
+  );
 }

@@ -1,0 +1,47 @@
+@import "styles/mixins";
+@import "styles/breakpoints";
+@import "styles/variables";
+
+.wrapper {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: $brand-secondary;
+  border-bottom: 1px dotted rgb(90, 90, 90, 0.7);
+  z-index: 2;
+}
+
+.header {
+  max-width: 1440px;
+  @include flex(space-between, center);
+  margin: 0 auto;
+  padding: 0 2rem;
+  z-index: 2;
+}
+
+.navigation {
+  //   @media (max-width: $tablet) {
+  //     display: none;
+  //   }
+
+  &-items {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    color: $brand-primary;
+    letter-spacing: 1px;
+  }
+}
+
+.logo {
+  margin-left: 6rem;
+}
+
+.navigation-bottom__items {
+  @include flex(center, center);
+  gap: 8rem;
+  padding: .5rem 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
