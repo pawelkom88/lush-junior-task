@@ -2,10 +2,11 @@ import { useState } from "react";
 import Head from "next/head";
 import Products from "@components/products/Products";
 import SearchBar from "@components/search-bar/SearchBar";
+import Layout from "@components/layout/Layout";
+import Hero from "@components/hero/Hero";
 
 export default function Home() {
   const [keyword, setKeyword] = useState<string>("");
-
 
   return (
     <>
@@ -15,10 +16,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/public/favicon.ico" />
       </Head>
-      <main>
+      <Layout>
+        <Hero />
         <SearchBar onSetKeyword={setKeyword} />
         <Products keyword={keyword} />
-      </main>
+      </Layout>
     </>
   );
 }
