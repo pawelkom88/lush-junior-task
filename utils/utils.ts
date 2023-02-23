@@ -1,1 +1,1 @@
-export const numberOfProducts = 10
+export const numberOfProducts = 20
