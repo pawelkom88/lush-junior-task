@@ -1,0 +1,43 @@
+@import "@styles/variables";
+@import "@styles/breakpoints";
+@import "@styles/mixins";
+
+.footer {
+  min-height: 20rem;
+  background-color: $brand-primary;
+  color: $brand-secondary;
+  padding: 2rem 0;
+
+  &-wrapper {
+    max-width: $container-width;
+    margin: 0 auto;
+  }
+
+  &-main {
+    @include flex(space-between, center);
+    flex-wrap: wrap;
+
+    &__col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+
+      & a:hover {
+        color: $brand-teriary;
+      }
+    }
+  }
+
+  &-bottom {
+    margin-top: 2rem;
+    @include flex(space-between, center);
+  }
+
+  @media (max-width: $tablet) {
+    display: none;
+  }
+
+  @media (max-width: $desktop) {
+    padding: 2rem 1rem;
+  }
+}

@@ -1,46 +1,41 @@
-import classes from "./Footer.module.scss";
 import Link from "next/link";
-
-const date = new Date().getFullYear();
+import SocialMedia from "@components/social-media/SocialMedia";
+import Copyright from "@components/copyright/Copyright";
+import { footerLinksCol1, footerLinksCol2, footerImg } from "@root/utils/utils";
+import classes from "./Footer.module.scss";
+import Image from "next/image";
 
 export default function Footer() {
   return (
     <footer className={classes.footer}>
-      <div className="container">
-        <section className={classes["footer-hrefp"]}>
-          <div className={classes["footer-col"]}>
-            <h3 className={classes["footer-col__heading"]}>Navigation</h3>
-
-            <Link href="/">asd</Link>
+      <div className={classes["footer-wrapper"]}>
+        <div className={classes["footer-main"]}>
+          <div className={classes['footer-main__col']}>
+            {footerLinksCol1?.map(({ id, href, name }) => {
+              return (
+                <Link key={id} href={href}>
+                  {name}
+                </Link>
+              );
+            })}
           </div>
-          <div className={classes["footer-col"]}>
-            <h3 className={classes["footer-col__heading"]}>hrefp Products</h3>
-            <Link href="/product/kettle">Kettle</Link>
-            <Link href="/product/headphones">Headphones</Link>
+          <div className={classes['footer-main__col']}>
+            {footerLinksCol2?.map(({ id, href, name }) => {
+              return (
+                <Link key={id} href={href}>
+                  {name}
+                </Link>
+              );
+            })}
           </div>
-
-          <div className={classes["footer-col"]}>
-            <h3 className={classes["footer-col__heading"]}>Newsletter</h3>
-            <p>You can trust us. We only send promo offers</p>
-            <div className={classes["footer-col__newsletter"]}>
-              <label htmlFor="newsletter">
-                <input
-                  className={classes["footer-col__input"]}
-                  type="email"
-                  id="newsletter"
-                  name="newsletter"
-                  placeholder="Your Email Address"
-                />
-              </label>
-              <buthrefn className={classes.buthrefn}>Subscribe</buthrefn>
-            </div>
+          <div className={classes["col-xl"]}>
+            <Image src={footerImg} width={400} height={250} alt="asd" />
           </div>
-        </section>
-        <section className={classes["footer-bothrefm"]}>
-          <small className={classes["footer-bothrefm__copyright"]}>
-            Copyright {date} All rights reserved - BrightWater
-          </small>
-        </section>
+        </div>
+        <div className={classes["footer-bottom"]}>
+          <SocialMedia />
+          <Copyright />
+        </div>
       </div>
     </footer>
   );
