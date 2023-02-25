@@ -1,0 +1,32 @@
+@import "@styles/variables";
+@import "@styles/breakpoints";
+
+.footer-form {
+  width: max(300px, 10%);
+  display: flex;
+  flex-grow: 0;
+  position: relative;
+
+  & input {
+    width: 100%;
+    padding: 0.9rem;
+    margin: 0 auto;
+    color: $brand-secondary;
+    background-color: $brand-primary;
+    border: 1px solid $brand-teriary;
+  }
+
+  & button {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.9rem;
+    width: 2rem;
+    background-color: $brand-primary;
+    fill: $brand-secondary;
+    border: none;
+  }
+
+  @media (max-width: $tablet) {
+    margin: 1rem auto;
+  }
+}

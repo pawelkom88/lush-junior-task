@@ -1,5 +1,6 @@
+import SocialMedia from "@components/social-media/SocialMedia";
+import SubscriptionForm from "@components/subscription-form/SubscriptionForm";
 import Copyright from "@components/copyright/Copyright";
-import Arrow from "@root/public/icons/Arrow";
 import classes from "./FooterMobile.module.scss";
 
 export default function FooterMobile() {
@@ -10,15 +11,10 @@ export default function FooterMobile() {
         Get 10% OFF when you sign up for our newsletter by submitting your email! Opt out at any
         time
       </p>
-      <form className={classes["footer-form"]}>
-        <label htmlFor="signup"></label>
-        <input id="signup" name="signup" type="email" placeholder="Enter e-mail" />
-        <button title="submit">
-          <Arrow />
-        </button>
-      </form>
+      <SubscriptionForm />
       <h4 className={classes["footer-text"]}>Customer Care: +44-(0)00-0000-0000</h4>
       <p className={classes["footer-text"]}>connect</p>
+      <SocialMedia/>
       <Copyright />
     </footer>
   );
