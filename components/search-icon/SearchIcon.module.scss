@@ -1,0 +1,7 @@
+@import "@styles/breakpoints";
+
+.icon {
+  @media (min-width: $tablet) {
+    display: none;
+  }
+}
