@@ -12,7 +12,7 @@
 }
 
 .header {
-  max-width: 1440px;
+  max-width: $container-width;
   @include flex(space-between, center);
   margin: 0 auto;
   padding: 0 2rem;
@@ -20,9 +20,9 @@
 }
 
 .navigation {
-  //   @media (max-width: $tablet) {
-  //     display: none;
-  //   }
+  @media (max-width: $tablet) {
+    display: none;
+  }
 
   &-items {
     display: flex;
@@ -32,16 +32,39 @@
     color: $brand-primary;
     letter-spacing: 1px;
   }
+
+  &-item:hover {
+    @include link-hover;
+  }
+
+  &-right {
+    display: flex;
+    * {
+      margin: 0 0.5rem;
+    }
+  }
 }
 
 .logo {
   margin-left: 6rem;
+
+  @media (max-width: $tablet) {
+    margin-left: 2rem;
+  }
 }
 
 .navigation-bottom__items {
   @include flex(center, center);
   gap: 8rem;
-  padding: .5rem 2rem;
+  padding: 0.5rem 2rem;
   text-transform: uppercase;
   font-weight: bold;
+
+  & .nav-item:hover {
+    @include link-hover;
+  }
+
+  @media (max-width: $tablet) {
+    display: none;
+  }
 }
