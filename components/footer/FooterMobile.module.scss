@@ -30,30 +30,4 @@
     font-size: 0.8rem;
     text-transform: uppercase;
   }
-
-  &-form {
-    width: max(300px, 40%);
-    margin: 1rem auto;
-    display: flex;
-    position: relative;
-
-    & input {
-      width: 100%;
-      padding: 0.9rem;
-      margin: 0 auto;
-      color: $brand-secondary;
-      background-color: $brand-primary;
-      border: 1px solid $brand-teriary;
-    }
-
-    & button {
-      position: absolute;
-      right: 0.5rem;
-      top: 0.9rem;
-      width: 2rem;
-      background-color: $brand-primary;
-      fill: $brand-secondary;
-      border: none;
-    }
-  }
 }
