@@ -1,7 +1,16 @@
 @import "@styles/variables";
+@import "@styles/breakpoints";
 
 .main {
-  max-width: 1440px;
+  max-width: $container-width;
   margin: 0 auto;
   margin-top: $headers-height;
+
+  @media (max-width: $desktop) {
+    padding: 0 1rem;
+  }
+
+  @media (max-width: $tablet) {
+    margin-top: 64px;
+  }
 }
