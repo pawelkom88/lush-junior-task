@@ -2,10 +2,17 @@ import fbIcon from "../public/icons/facebook.svg";
 import whatsappIcon from "../public/icons/whatsapp.svg";
 import instagramIcon from "../public/icons/instagram.svg";
 import linkedinIcon from "../public/icons/linkedin.svg";
-import footerAd from "../public/images/PRODUCT-UNAVAILABLE.png";
+import footerAd from "../public/images/footer-ad.webp";
 
 export const numberOfProducts = 20;
 export const date = new Date().getFullYear();
+
+export const navLinks = [
+  { id: 1, name: "Hot list", href: "/" },
+  { id: 2, name: "New", href: "/" },
+  { id: 3, name: "Sale", href: "/" },
+  { id: 4, name: "Best sellers", href: "/" },
+];
 
 export const socialMedia = [
   {
