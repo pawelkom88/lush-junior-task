@@ -1,0 +1,38 @@
+@import "@styles/mixins";
+@import "@styles/variables";
+
+.product {
+  min-height: 34rem;
+  transition: transform 0.2s ease-in-out;
+  @include box-shadow;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+
+  &-image {
+    height: 65%;
+    display: block;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &-description {
+    padding: 1rem;
+    text-align: center;
+
+    &__name {
+      font-family: $font-primary;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: center;
+    }
+
+    &__category {
+      margin: 1rem 0;
+    }
+  }
+}
