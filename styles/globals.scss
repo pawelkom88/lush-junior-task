@@ -82,3 +82,21 @@ select {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+.select {
+  color: $brand-secondary;
+  background-color: $brand-primary;
+  border: none;
+  padding: 0.5rem 2rem;
+
+  & option:first-of-type {
+    background-color: $brand-teriary;
+    color: $brand-secondary;
+  }
+
+  & option {
+    color: $brand-primary;
+    background-color: $brand-secondary;
+    font-weight: bold;
+  }
+}
