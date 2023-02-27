@@ -11,8 +11,8 @@
   width: 2.5rem;
   height: 2.5rem;
   border: 0.2rem solid transparent;
-  border-color: $brand-secondary;
-  border-top-color: yellow;
+  border-color: $brand-primary;
+  border-top-color: $brand-teriary;
   border-radius: 50%;
   pointer-events: none;
   animation: spin 1s linear;

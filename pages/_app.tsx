@@ -9,13 +9,12 @@ import "@fontsource/figtree";
 import "@styles/globals.scss";
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [keyword, setKeyword] = useState<string>("");
+  const [productQuery, setProductQuery] = useState<string>("");
 
   return (
-    // Implement a provider on a highest lvl in app, so other components(children) have access to it.
     <ApolloProvider client={client}>
-      <Navigation onSetKeyword={setKeyword} />
-      <Component {...pageProps} keyword={keyword} />
+      <Navigation onProductQuery={setProductQuery} />
+      <Component {...pageProps} keyword={productQuery} />
       <Footer />
       <FooterMobile />
     </ApolloProvider>

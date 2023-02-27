@@ -1,5 +1,5 @@
-import { date } from "@utils/utils";
+import { currentYear } from "constants/constants";
 
 export default function Copyright() {
-  return <small>©{date} Posh, Inc. All Rights Reserved.</small>;
+  return <small>©{currentYear} Posh, Inc. All Rights Reserved.</small>;
 }
