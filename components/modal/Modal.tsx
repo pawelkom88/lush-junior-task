@@ -1,16 +1,16 @@
 import { useState } from "react";
 import Overlay from "components/modal/Overlay";
 import classes from "./Modal.module.scss";
-import { ChildrenType } from "types/types";
+import { Props } from "types/types";
 
-export default function Modal({ children }: ChildrenType) {
-  const [isOpen, setIsOpen] = useState(true);
+export default function Modal({ children }: Props) {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(true);
 
   return (
     <>
-      {isOpen && (
-        <Overlay onClose={() => setIsOpen(false)}>
-          <dialog className={classes.modal} onClick={e => e.stopPropagation()} open>
+      {isModalOpen && (
+        <Overlay onModalClose={() => setIsModalOpen(false)}>
+          <dialog className={classes.modal} onClickCapture={e => e.stopPropagation()} open>
             {children}
           </dialog>
         </Overlay>

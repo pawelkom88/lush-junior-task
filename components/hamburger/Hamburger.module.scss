@@ -11,7 +11,6 @@
   background-color: transparent;
   cursor: pointer;
   z-index: 4;
-  
 
   @media (min-width: $tablet) {
     display: none;
@@ -43,11 +42,11 @@
 .hamburger.active::after {
   transform: translate(-50%) rotate(-40deg) scaleX(0.8);
   background: $brand-primary;
-  z-index: 20;
+  z-index: 4;
 }
 
 .hamburger.active::before {
   transform: translate(-50%) rotate(40deg) scaleX(0.8);
   background: $brand-primary;
-  z-index: 20;
+  z-index: 4;
 }

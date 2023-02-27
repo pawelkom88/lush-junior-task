@@ -7,15 +7,14 @@ import classes from "./Navigation.module.scss";
 import Hamburger from "@components/hamburger/Hamburger";
 import SrButton from "@components/sr-button/SrButton";
 import SearchIcon from "@components/search-icon/SearchIcon";
-import { navLinks } from "@root/utils/utils";
-import { link } from "fs";
+import { navLinks } from "constants/constants";
 
-type NavigationProps = {
-  onSetKeyword: (val: string) => void;
-};
-
-export default function Navigation({ onSetKeyword }: NavigationProps) {
-  const [isOpen, setIsOpen] = useState(false);
+export default function Navigation({
+  onProductQuery: onSetKeyword,
+}: {
+  onProductQuery: (val: string) => void;
+}) {
+  const [showSearchField, setShowSearchField] = useState<boolean>(false);
 
   return (
     <div className={classes.wrapper}>
@@ -30,7 +29,7 @@ export default function Navigation({ onSetKeyword }: NavigationProps) {
             </li>
           </ul>
         </nav>
-        {!isOpen && (
+        {!showSearchField && (
           <>
             <Hamburger />
             <Link href="/">
@@ -47,11 +46,11 @@ export default function Navigation({ onSetKeyword }: NavigationProps) {
 
         <div className={classes["navigation-right"]}>
           <SearchBar
-            onClick={() => setIsOpen(false)}
+            onShowSearchField={() => setShowSearchField(false)}
             onSetKeyword={onSetKeyword}
-            isDisplayed={isOpen}
+            isDisplayed={showSearchField}
           />
-          <SearchIcon onClick={() => setIsOpen(true)} />
+          <SearchIcon onShowSearchField={() => setShowSearchField(true)} />
           <SrButton text="Cart">
             <ShoppingBagIcon size={24} />
           </SrButton>

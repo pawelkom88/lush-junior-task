@@ -1,13 +1,9 @@
 import classes from "./SearchIcon.module.scss";
 
-type SearchIconProps = {
-  onClick?: () => void;
-};
-
-export default function SearchIcon({ onClick }: SearchIconProps) {
+export default function SearchIcon({ onShowSearchField }: { onShowSearchField?: () => void }) {
   return (
     <svg
-      onClick={onClick}
+      onClick={onShowSearchField}
       className={classes.icon}
       width={20}
       viewBox="0 0 16 16"

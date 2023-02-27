@@ -1,6 +1,7 @@
+import React from "react";
 import classes from "./Layout.module.scss";
-import { ChildrenType } from "types/types";
+import { Props } from "types/types";
 
-export default function Layout({ children }: ChildrenType) {
+export default function Layout({ children }: Props) {
   return <main className={classes.main}>{children}</main>;
 }
