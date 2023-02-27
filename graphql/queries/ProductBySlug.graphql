@@ -3,6 +3,26 @@ query ProductBySlug($slug: String) {
     id
     name
     description
+    rating
+    category {
+      name
+    }
+    weight {
+      unit
+      value
+    }
+    pricing {
+      priceRange {
+        start {
+          gross {
+            amount
+            currency
+          }
+        }
+      }
+      onSale
+    }
+    isAvailable
     media {
       url
     }

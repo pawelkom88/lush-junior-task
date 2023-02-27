@@ -5,12 +5,8 @@ query GetProducts($first: Int, $filter: ProductFilterInput, $sortBy: ProductOrde
         id
         name
         description
-        slug
-        weight {
-          unit
-          value
-        }
         rating
+        slug
         pricing {
           priceRange {
             start {
@@ -20,21 +16,7 @@ query GetProducts($first: Int, $filter: ProductFilterInput, $sortBy: ProductOrde
               }
             }
           }
-          discount {
-            gross {
-              amount
-            }
-            currency
-          }
-          onSale
         }
-        isAvailable
-        media {
-          Large: url
-          alt
-        }
-        availableForPurchase
-        isAvailableForPurchase
         thumbnail(size: 300) {
           url
           alt
@@ -43,6 +25,7 @@ query GetProducts($first: Int, $filter: ProductFilterInput, $sortBy: ProductOrde
           name
         }
       }
+      cursor
     }
     pageInfo {
       hasNextPage
