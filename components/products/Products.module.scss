@@ -1,6 +1,13 @@
+@import "@styles/breakpoints";
+
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 3rem;
-  margin: 5rem 0;
+  margin: 1rem 0 5rem 0;
+}
+
+.availability {
+  font-size: 1.2rem;
+  margin-top: 3rem;
 }
