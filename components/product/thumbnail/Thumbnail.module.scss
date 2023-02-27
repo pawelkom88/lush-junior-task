@@ -1,0 +1,21 @@
+@import "@styles/breakpoints";
+
+.product-image__mini {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+
+  @media (max-width: $tablet) {
+    display: none;
+  }
+
+  & * {
+    padding: 2px;
+  }
+}
+
+.thumbnail {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
