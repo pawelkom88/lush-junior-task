@@ -13,7 +13,7 @@ import classes from "./product.module.scss";
 type ProductPrice = { __typename?: "Money"; amount: number; currency: string } | undefined;
 
 export default function Product({ product }: ProductBySlugQuery) {
-  const { name, media, description, rating, pricing, weight } = product || {};
+  const { name, media, description, rating, pricing, weight, isAvailable } = product || {};
 
   const [selectedImage, setSelectedImage] = useState<string | StaticImageData>(
     media?.[0]?.url || productUnavailable
@@ -55,6 +55,9 @@ export default function Product({ product }: ProductBySlugQuery) {
               return <p key={id} dangerouslySetInnerHTML={createSanitizedMarkup(data.text)} />;
             })}
           </>
+          <p className={classes["product-details__availability"]}>
+            {isAvailable ? "in stock" : "Unavailable"}
+          </p>
           {productPrice?.amount ? <CartButton /> : ""}
         </div>
       </article>
