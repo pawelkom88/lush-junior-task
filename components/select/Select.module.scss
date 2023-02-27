@@ -1,0 +1,7 @@
+@import "@styles/variables";
+@import "@styles/mixins";
+
+.select-wrapper {
+  @include flex(flex-start, center);
+  margin: 1rem 0;
+}
