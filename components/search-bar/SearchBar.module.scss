@@ -3,10 +3,10 @@
 
 .form {
   display: flex;
+  position: relative;
 
   & input {
-    position: relative;
-    width: 10rem;
+    width: 11rem;
     min-height: 2rem;
     background-image: url("../../public/icons/search-icon.png");
     background-position: 5px center;
@@ -25,19 +25,25 @@
   }
 }
 
+.hidden-input {
+  display: none;
+}
+
 .clear-input {
   position: absolute;
   top: 1.2rem;
   right: 0;
   background: none;
   border: none;
+  cursor: pointer;
 
   @media (min-width: $tablet) {
-    display: none;
+    top: 0.3rem;
+    right: -0.8rem;
   }
 }
 
-.mobile {
+.onMobile {
   position: absolute;
   inset: 0;
   z-index: 5;
@@ -47,7 +53,7 @@
   }
 }
 
-.desktop {
+.onDesktop {
   @media (max-width: $tablet) {
     display: none;
   }
