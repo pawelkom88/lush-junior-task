@@ -1,4 +1,6 @@
-import { useGetProductsQuery } from "@generated/api";
+import { useState } from "react";
+import { OrderDirection, ProductOrderField, useGetProductsQuery } from "@generated/api";
+import PagesSelect from "@components/pages-select/PagesSelect";
 import SortingElement from "@components/sorting-element/SortingElement";
 import ProductCard from "@components/product/product-card/ProductCard";
 import Spinner from "@components/spinner/Spinner";
@@ -11,10 +13,15 @@ type ProductsProps = {
 };
 
 export default function Products({ keyword }: ProductsProps) {
+  const [sortBy, setSortBy] = useState<string>(ProductOrderField.Name);
   const { loading, error, data } = useGetProductsQuery({
     variables: {
       first: numberOfProductsToFetch,
       filter: { search: keyword },
+      sortBy: {
+        field: sortBy as ProductOrderField,
+        direction: OrderDirection.Asc,
+      },
     },
   });
 
@@ -24,10 +31,14 @@ export default function Products({ keyword }: ProductsProps) {
   if (data) {
     const products: any[] = data?.products?.edges || [];
     const total: number | null | undefined = data?.products?.totalCount;
+
     return (
       <section id="products">
-        <p className={classes.availability}>Available products: {total}</p>
-        <SortingElement />
+        <p className={classes["product-total"]}>Available products: {total}</p>
+        <div className={classes["select-wrapper"]}>
+          <SortingElement value={sortBy} onSortBy={setSortBy} />
+          <PagesSelect />
+        </div>
         <ul className={classes.products}>
           {products.map(({ node: product }) => {
             return <ProductCard key={product.id} product={product} />;
