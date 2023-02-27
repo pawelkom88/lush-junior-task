@@ -1,31 +1,27 @@
-import { client } from "../client/client";
 import { useProductBySlugQuery, GetProductsDocument, GetProductsQuery } from "@generated/api";
-import { numberOfProducts } from "@utils/utils";
+import Spinner from "@components/spinner/Spinner";
+import Modal from "@components/modal/Modal";
+import Product from "@components/product/Product";
+import { numberOfProductsToFetch } from "constants/constants";
+import { client } from "../client/client";
 
-type ProductTypeProps = {
-  slug: string;
-};
-
-export default function ProductPage({ slug }: ProductTypeProps) {
+export default function ProductPage({ slug }: { slug: string }) {
   const { loading, error, data } = useProductBySlugQuery({ variables: { slug } });
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error</p>;
+  if (loading) return <Spinner />;
+  if (error) return <Modal>Could not fetch data. Please try again later.</Modal>;
 
   if (data) {
-    const { product } = data;
-
-    return <div>{product?.name}</div>;
+    return <Product product={data.product} />;
   }
+  return null;
 }
 
-
-// If a page has Dynamic Routes and uses getStaticProps, it needs to define a list of paths to be statically generated.
 export async function getStaticPaths() {
   const { data } = await client.query<GetProductsQuery>({
     query: GetProductsDocument,
     variables: {
-      first: numberOfProducts,
+      first: numberOfProductsToFetch,
     },
   });
 
@@ -39,7 +35,13 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({
+  params,
+}: {
+  params: {
+    slug: string;
+  };
+}) {
   return {
     props: {
       slug: params?.slug,
