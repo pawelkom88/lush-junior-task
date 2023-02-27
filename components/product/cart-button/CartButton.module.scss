@@ -1,0 +1,20 @@
+@import "styles/mixins";
+@import "styles/variables";
+
+.cart-button {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 1rem 2rem;
+  background-color: $brand-primary;
+  color: $brand-secondary;
+  font-weight: "bold";
+  margin-top: 1rem;
+  border: 3px solid #000;
+  cursor: pointer;
+  @include transition(all, 0.4s, ease-in-out);
+
+  &:hover {
+    background-color: $brand-secondary;
+    color: $brand-primary;
+  }
+}
