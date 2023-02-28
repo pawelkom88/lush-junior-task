@@ -1,0 +1,19 @@
+@import "styles/breakpoints";
+@import "styles/variables";
+@import "styles/mixins";
+
+.navigation-bottom__items {
+  @include flex(center, center);
+  gap: 8rem;
+  padding: 0.5rem 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  & .nav-item:hover {
+    @include link-hover;
+  }
+
+  @media (max-width: $tablet) {
+    display: none;
+  }
+}

@@ -1,3 +1,5 @@
+import { NumberOfProductsToDisplayArray } from "@root/constants/constants";
+
 export default function NumberOfProductToDisplaySelect({
   value,
   onProductToDisplayChange,
@@ -15,10 +17,13 @@ export default function NumberOfProductToDisplaySelect({
         }
         title="select"
         value={value}>
-        <option value="20">20</option>
-        <option value="30">30</option>
-        <option value="40">40</option>
-        <option value="50">50</option>
+        {NumberOfProductsToDisplayArray.map(number => {
+          return (
+            <option key={number} value={number}>
+              {number}
+            </option>
+          );
+        })}
       </select>
     </>
   );

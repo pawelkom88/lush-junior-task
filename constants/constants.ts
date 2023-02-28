@@ -14,6 +14,10 @@ export const productUnavailable: StaticImageData = fallback;
 
 export const playButton: StaticImageData = playBtn;
 
+export const NumberOfProductsToDisplayArray: number[] = [20, 30, 40, 50];
+
+export const NameOfSortingCriteriasArray: string[] = ["NAME", "PRICE", "RATING"];
+
 interface navLinks {
   id: number;
   name: string;
@@ -21,10 +25,10 @@ interface navLinks {
 }
 
 export const navLinks: navLinks[] = [
-  { id: 1, name: "Hot list", href: "/" },
-  { id: 2, name: "New", href: "/" },
-  { id: 3, name: "Sale", href: "/" },
-  { id: 4, name: "Best sellers", href: "/" },
+  { id: 1, name: "Hot list", href: "hot-list" },
+  { id: 2, name: "New", href: "new-products" },
+  { id: 3, name: "Sale", href: "sale" },
+  { id: 4, name: "Best sellers", href: "best-sellers" },
 ];
 
 interface SocialMediaConfig {
