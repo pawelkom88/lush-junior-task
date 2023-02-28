@@ -1,22 +1,21 @@
 import { useState } from "react";
 import { OrderDirection, ProductOrderField, useGetProductsQuery } from "@generated/api";
-import PagesSelect from "@components/pages-select/PagesSelect";
-import SortingElement from "@components/sorting-element/SortingElement";
+import NumberOfProductToDisplaySelect from "@components/pages-select/NumberOfProductToDisplaySelect";
+import ProductSortSelect from "@components/sorting-element/ProductSortSelect";
 import ProductCard from "@components/product/product-card/ProductCard";
 import Spinner from "@components/spinner/Spinner";
 import Modal from "@components/modal/Modal";
 import classes from "./Products.module.scss";
 import { numberOfProductsToFetch } from "constants/constants";
 
-type ProductsProps = {
-  keyword: string;
-};
-
-export default function Products({ keyword }: ProductsProps) {
+export default function Products({ keyword }: { keyword: string }) {
+  const [numberOfProductsToDisplay, setNumberOfProductsToDisplay] =
+    useState<number>(numberOfProductsToFetch);
   const [sortBy, setSortBy] = useState<string>(ProductOrderField.Name);
+
   const { loading, error, data } = useGetProductsQuery({
     variables: {
-      first: numberOfProductsToFetch,
+      first: numberOfProductsToDisplay,
       filter: { search: keyword },
       sortBy: {
         field: sortBy as ProductOrderField,
@@ -36,8 +35,11 @@ export default function Products({ keyword }: ProductsProps) {
       <section id="products">
         <p className={classes["product-total"]}>Available products: {total}</p>
         <div className={classes["select-wrapper"]}>
-          <SortingElement value={sortBy} onSortBy={setSortBy} />
-          <PagesSelect />
+          <ProductSortSelect value={sortBy} onSortBy={setSortBy} />
+          <NumberOfProductToDisplaySelect
+            value={numberOfProductsToDisplay}
+            onProductToDisplayChange={setNumberOfProductsToDisplay}
+          />
         </div>
         <ul className={classes.products}>
           {products.map(({ node: product }) => {
