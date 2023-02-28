@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { OrderDirection, PageInfo, ProductOrderField, useGetProductsQuery } from "@generated/api";
+import {
+  OrderDirection,
+  PageInfo,
+  ProductOrderField,
+  useGetPartialProductsDataQuery,
+} from "@generated/api";
 import NumberOfProductToDisplaySelect from "@components/pages-select/NumberOfProductToDisplaySelect";
 import ProductSortSelect from "@components/sorting-element/ProductSortSelect";
 import ProductCard from "@components/product/product-card/ProductCard";
@@ -14,8 +19,7 @@ export default function Products({ keyword }: { keyword: string }) {
     useState<number>(numberOfProductsToFetch);
 
   const [sortBy, setSortBy] = useState<string>(ProductOrderField.Name);
-
-  const { loading, error, data, fetchMore } = useGetProductsQuery({
+  const { loading, error, data, fetchMore } = useGetPartialProductsDataQuery({
     variables: {
       first: numberOfProductsToDisplay,
       filter: { search: keyword },
@@ -24,10 +28,11 @@ export default function Products({ keyword }: { keyword: string }) {
         direction: OrderDirection.Asc,
       },
     },
+    fetchPolicy: "cache-and-network",
   });
 
   if (loading) return <Spinner />;
-  if (error) return <Modal>Coul not fetch data. Please try again later.</Modal>;
+  if (error) return <Modal>Could not fetch data. Please try again later.</Modal>;
 
   if (data) {
     const products: any[] = data?.products?.edges || [];
