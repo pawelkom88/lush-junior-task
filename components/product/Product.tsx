@@ -13,13 +13,13 @@ import classes from "./product.module.scss";
 type ProductPrice = { __typename?: "Money"; amount: number; currency: string } | undefined;
 
 export default function Product({ product }: ProductBySlugQuery) {
-  const { name, media, description, rating, pricing, weight, isAvailable } = product || {};
+  const { name = "", media, description, rating, pricing, weight, isAvailable } = product || {};
 
   const [selectedImage, setSelectedImage] = useState<string | StaticImageData>(
     media?.[0]?.url || productUnavailable
   );
 
-  const productDescription: ProductDescription[] = JSON.parse(description).blocks;
+  const productDescription: ProductDescription[] = JSON.parse(description)?.blocks;
 
   const productWeightWithUnit: string = weight ? `${weight.value} ${weight.unit}` : notAvailable;
 
@@ -37,9 +37,9 @@ export default function Product({ product }: ProductBySlugQuery) {
       <article className={classes.product}>
         <div className={classes["product-wrapper"]}>
           <div className={classes["product-image"]}>
-            <Image width={600} height={200} src={selectedImage} alt={name || ""} />
+            <Image width={600} height={200} src={selectedImage} alt={name} />
           </div>
-          <Thumbnail alt={name || ""} media={media} onSelectedImage={setSelectedImage} />
+          <Thumbnail alt={name} media={media} onSelectedImage={setSelectedImage} />
         </div>
         <div className={classes["product-details"]}>
           <h1 className={classes["product-details__name"]}>{name}</h1>
