@@ -7,6 +7,7 @@ export default function NumberOfProductToDisplaySelect({
 }) {
   return (
     <>
+      Products per page:
       <select
         className="select"
         onChange={(e: React.ChangeEvent<{ value: string }>) =>
@@ -14,9 +15,6 @@ export default function NumberOfProductToDisplaySelect({
         }
         title="select"
         value={value}>
-        <option value="" disabled>
-          PRODUCTS PER PAGE
-        </option>
         <option value="20">20</option>
         <option value="30">30</option>
         <option value="40">40</option>
