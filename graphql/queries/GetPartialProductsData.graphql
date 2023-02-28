@@ -1,10 +1,14 @@
-query GetProducts($first: Int) {
-  products(first: $first, channel: "uk") {
+query GetPartialProductsData(
+  $first: Int
+  $filter: ProductFilterInput
+  $sortBy: ProductOrder
+  $after: String
+) {
+  products(first: $first, channel: "uk", filter: $filter, sortBy: $sortBy, after: $after) {
     edges {
       node {
         id
         name
-        description
         rating
         slug
         pricing {
