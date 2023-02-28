@@ -1,5 +1,5 @@
-query GetProducts($first: Int, $after: String, $filter: ProductFilterInput, $sortBy: ProductOrder) {
-  products(first: $first, after: $after, channel: "uk", filter: $filter, sortBy: $sortBy) {
+query GetProducts($first: Int = 10, $filter: ProductFilterInput, $sortBy: ProductOrder, $after: String) {
+  products(first: $first, channel: "uk", filter: $filter, sortBy: $sortBy, after: $after) {
     edges {
       node {
         id
