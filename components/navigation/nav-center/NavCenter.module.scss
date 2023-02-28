@@ -1,0 +1,9 @@
+@import "styles/breakpoints";
+
+.logo {
+  margin-left: 6rem;
+
+  @media (max-width: $tablet) {
+    margin-left: 2rem;
+  }
+}
