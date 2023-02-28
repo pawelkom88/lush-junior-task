@@ -1,5 +1,3 @@
-import SortByIcon from "@root/public/icons/SortByIcon";
-
 export default function ProductSortSelect({
   onSortBy,
   value,
@@ -9,15 +7,12 @@ export default function ProductSortSelect({
 }) {
   return (
     <>
-      <SortByIcon />
+      Sort by:
       <select
         className="select"
         onChange={(e: React.ChangeEvent<{ value: string }>) => onSortBy(e.target.value)}
         title="select"
         value={value}>
-        <option value="" disabled>
-          SORT BY
-        </option>
         <option value="NAME">Name</option>
         <option value="PRICE">Price</option>
         <option value="RATING">Rating</option>
