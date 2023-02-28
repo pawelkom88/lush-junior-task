@@ -1,0 +1,17 @@
+@import "@styles/variables";
+
+.pagination {
+  text-align: center;
+
+  &-btn {
+    background-color: $brand-primary;
+    color: $brand-secondary;
+    border: none;
+    cursor: pointer;
+  }
+
+  &-page-count {
+    font-size: 1.2rem;
+    margin: 2rem;
+  }
+}

@@ -31,10 +31,10 @@ export default function Products({ keyword }: { keyword: string }) {
 
   if (data) {
     const products: any[] = data?.products?.edges || [];
-    const total: number | null | undefined = data?.products?.totalCount;
+    const totalCount: number | null | undefined = data?.products?.totalCount;
     const pageInfo: PageInfo | undefined = data.products?.pageInfo;
 
-    const onFetchMoreProducts = () => {
+    const onLoadMore = () => {
       fetchMore({
         variables: {
           after: pageInfo?.endCursor,
@@ -44,7 +44,6 @@ export default function Products({ keyword }: { keyword: string }) {
 
     return (
       <section id="products">
-        <p className={classes["product-total"]}>Available products: {total}</p>
         <div className={classes["select-wrapper"]}>
           <ProductSortSelect value={sortBy} onSortBy={setSortBy} />
           <NumberOfProductToDisplaySelect
@@ -57,7 +56,13 @@ export default function Products({ keyword }: { keyword: string }) {
             return <ProductCard key={product.id} product={product} />;
           })}
         </ul>
-        {pageInfo?.hasNextPage && <Pagination onFetchMoreProducts={onFetchMoreProducts} />}
+        {pageInfo?.hasNextPage && (
+          <Pagination
+            onLoadMore={onLoadMore}
+            itemCount={products.length}
+            totalCount={totalCount || NaN}
+          />
+        )}
       </section>
     );
   }
