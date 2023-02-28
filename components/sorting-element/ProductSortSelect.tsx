@@ -1,6 +1,6 @@
 import SortByIcon from "@root/public/icons/SortByIcon";
 
-export default function SortingElement({
+export default function ProductSortSelect({
   onSortBy,
   value,
 }: {
