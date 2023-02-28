@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { OrderDirection, ProductOrderField, useGetProductsQuery } from "@generated/api";
+import { OrderDirection, PageInfo, ProductOrderField, useGetProductsQuery } from "@generated/api";
 import NumberOfProductToDisplaySelect from "@components/pages-select/NumberOfProductToDisplaySelect";
 import ProductSortSelect from "@components/sorting-element/ProductSortSelect";
 import ProductCard from "@components/product/product-card/ProductCard";
 import Spinner from "@components/spinner/Spinner";
+import Pagination from "@components/pagination/Pagination";
 import Modal from "@components/modal/Modal";
 import classes from "./Products.module.scss";
 import { numberOfProductsToFetch } from "constants/constants";
@@ -11,9 +12,10 @@ import { numberOfProductsToFetch } from "constants/constants";
 export default function Products({ keyword }: { keyword: string }) {
   const [numberOfProductsToDisplay, setNumberOfProductsToDisplay] =
     useState<number>(numberOfProductsToFetch);
+
   const [sortBy, setSortBy] = useState<string>(ProductOrderField.Name);
 
-  const { loading, error, data } = useGetProductsQuery({
+  const { loading, error, data, fetchMore } = useGetProductsQuery({
     variables: {
       first: numberOfProductsToDisplay,
       filter: { search: keyword },
@@ -30,6 +32,15 @@ export default function Products({ keyword }: { keyword: string }) {
   if (data) {
     const products: any[] = data?.products?.edges || [];
     const total: number | null | undefined = data?.products?.totalCount;
+    const pageInfo: PageInfo | undefined = data.products?.pageInfo;
+
+    const onFetchMoreProducts = () => {
+      fetchMore({
+        variables: {
+          after: pageInfo?.endCursor,
+        },
+      });
+    };
 
     return (
       <section id="products">
@@ -46,6 +57,7 @@ export default function Products({ keyword }: { keyword: string }) {
             return <ProductCard key={product.id} product={product} />;
           })}
         </ul>
+        {pageInfo?.hasNextPage && <Pagination onFetchMoreProducts={onFetchMoreProducts} />}
       </section>
     );
   }
