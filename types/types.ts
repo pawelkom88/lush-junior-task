@@ -8,14 +8,6 @@ export type SearchBarProps = {
   isDisplayed: boolean;
 };
 
-export interface ProductDescription {
-  id: string;
-  data: {
-    text: string;
-    type: string;
-  };
-}
-
 export type ThumbnailProps = {
   media: { url: string }[] | null | undefined;
   alt: string;
@@ -24,4 +16,25 @@ export type ThumbnailProps = {
 
 export interface SrButtonProps extends Props {
   text: string;
+}
+
+export interface ToolBarProps {
+  sortBy: string;
+  numberOfProductsToDisplay: number;
+  onSortBy: (val: string) => void;
+  onSetNumberOfProductsToDisplay: (val: number) => void;
+}
+
+export interface ProductsProps {
+  keyword: string;
+  numberOfProductsToDisplay: number;
+  sortBy: string;
+}
+
+export interface ProductDescription {
+  id: string;
+  data: {
+    text: string;
+    type: string;
+  };
 }
