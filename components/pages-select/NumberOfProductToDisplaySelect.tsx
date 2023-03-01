@@ -1,11 +1,11 @@
 import { NumberOfProductsToDisplayArray } from "@root/constants/constants";
 
 export default function NumberOfProductToDisplaySelect({
-  value,
-  onProductToDisplayChange,
+  numberOfProductsToDisplay,
+  onSetNumberOfProductsToDisplay,
 }: {
-  value: number;
-  onProductToDisplayChange: (val: number) => void;
+  numberOfProductsToDisplay: number;
+  onSetNumberOfProductsToDisplay: (val: number) => void;
 }) {
   return (
     <>
@@ -13,10 +13,10 @@ export default function NumberOfProductToDisplaySelect({
       <select
         className="select"
         onChange={(e: React.ChangeEvent<{ value: string }>) =>
-          onProductToDisplayChange(+e.target.value)
+          onSetNumberOfProductsToDisplay(+e.target.value)
         }
         title="select"
-        value={value}>
+        value={numberOfProductsToDisplay}>
         {NumberOfProductsToDisplayArray.map(number => {
           return (
             <option key={number} value={number}>
