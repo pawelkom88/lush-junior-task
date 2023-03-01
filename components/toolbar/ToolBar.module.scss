@@ -1,0 +1,9 @@
+@import "@styles/mixins";
+
+.select-wrapper {
+  @include flex(flex-start, center);
+  flex-wrap: wrap;
+  padding: 1rem 0;
+  margin: 3rem 0 1rem 0;
+  gap: 1rem;
+}

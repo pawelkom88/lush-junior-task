@@ -1,24 +1,17 @@
-import { useState } from "react";
 import {
   OrderDirection,
   PageInfo,
   ProductOrderField,
   useGetPartialProductsDataQuery,
 } from "@generated/api";
-import NumberOfProductToDisplaySelect from "@components/pages-select/NumberOfProductToDisplaySelect";
-import ProductSortSelect from "@components/sorting-element/ProductSortSelect";
 import ProductCard from "@components/product/product-card/ProductCard";
 import Spinner from "@components/spinner/Spinner";
 import Pagination from "@components/pagination/Pagination";
 import Modal from "@components/modal/Modal";
+import { ProductsProps } from "@root/types/types";
 import classes from "./Products.module.scss";
-import { numberOfProductsToFetch } from "constants/constants";
 
-export default function Products({ keyword }: { keyword: string }) {
-  const [numberOfProductsToDisplay, setNumberOfProductsToDisplay] =
-    useState<number>(numberOfProductsToFetch);
-
-  const [sortBy, setSortBy] = useState<string>(ProductOrderField.Name);
+export default function Products({ keyword, numberOfProductsToDisplay, sortBy }: ProductsProps) {
   const { loading, error, data, fetchMore } = useGetPartialProductsDataQuery({
     variables: {
       first: numberOfProductsToDisplay,
@@ -49,13 +42,6 @@ export default function Products({ keyword }: { keyword: string }) {
 
     return (
       <section id="products">
-        <div className={classes["select-wrapper"]}>
-          <ProductSortSelect value={sortBy} onSortBy={setSortBy} />
-          <NumberOfProductToDisplaySelect
-            value={numberOfProductsToDisplay}
-            onProductToDisplayChange={setNumberOfProductsToDisplay}
-          />
-        </div>
         <ul className={classes.products}>
           {products.map(({ node: product }) => {
             return <ProductCard key={product.id} product={product} />;

@@ -1,13 +1,18 @@
+import { useState } from "react";
 import Head from "next/head";
 import Products from "@components/products/Products";
 import Layout from "@components/layout/Layout";
 import Hero from "@components/hero/Hero";
+import ToolBar from "@components/toolbar/ToolBar";
+import { numberOfProductsToFetch } from "constants/constants";
+import { ProductOrderField } from "@generated/api";
 
-type NavigationProps = {
-  keyword: string;
-};
+export default function Home({ keyword }: { keyword: string }) {
+  const [numberOfProductsToDisplay, setNumberOfProductsToDisplay] =
+    useState<number>(numberOfProductsToFetch);
 
-export default function Home({ keyword }: NavigationProps) {
+  const [sortBy, setSortBy] = useState<string>(ProductOrderField.Name);
+
   return (
     <>
       <Head>
@@ -18,7 +23,17 @@ export default function Home({ keyword }: NavigationProps) {
       </Head>
       <Layout>
         <Hero />
-        <Products keyword={keyword} />
+        <ToolBar
+          sortBy={sortBy}
+          onSortBy={setSortBy}
+          numberOfProductsToDisplay={numberOfProductsToDisplay}
+          onSetNumberOfProductsToDisplay={setNumberOfProductsToDisplay}
+        />
+        <Products
+          keyword={keyword}
+          sortBy={sortBy}
+          numberOfProductsToDisplay={numberOfProductsToDisplay}
+        />
       </Layout>
     </>
   );
