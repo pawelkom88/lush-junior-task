@@ -28,9 +28,9 @@ export default function Products({ keyword, numberOfProductsToDisplay, sortBy }:
   if (error) return <Modal>Could not fetch data. Please try again later.</Modal>;
 
   if (data) {
-    const products: any[] = data?.products?.edges || [];
-    const totalCount: number | null | undefined = data?.products?.totalCount;
-    const pageInfo: PageInfo | undefined = data.products?.pageInfo;
+    const products: any[] = data.products?.edges || [];
+    const totalCount: number = data.products?.totalCount || 0;
+    const pageInfo: PageInfo = data.products?.pageInfo || ({} as PageInfo);
 
     const onLoadMore = () => {
       fetchMore({
