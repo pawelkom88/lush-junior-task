@@ -1,4 +1,4 @@
-import { NameOfSortingCriteriasArray } from "@root/constants/constants";
+import { sortByOptions } from "@root/constants/constants";
 
 export default function ProductSortSelect({
   onSortBy,
@@ -16,7 +16,7 @@ export default function ProductSortSelect({
         onChange={(e: React.ChangeEvent<{ value: string }>) => onSortBy(e.target.value)}
         title="Sort by"
         value={sortBy}>
-        {NameOfSortingCriteriasArray.map(sortedBy => {
+        {sortByOptions.map(sortedBy => {
           return (
             <option key={sortedBy} value={sortedBy}>
               {sortedBy}

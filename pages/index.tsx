@@ -4,12 +4,12 @@ import Products from "@components/products/Products";
 import Layout from "@components/layout/Layout";
 import Hero from "@components/hero/Hero";
 import ToolBar from "@components/toolbar/ToolBar";
-import { numberOfProductsToFetch } from "constants/constants";
+import { initialNumberOfProducts } from "constants/constants";
 import { ProductOrderField } from "@generated/api";
 
 export default function Home({ keyword }: { keyword: string }) {
   const [numberOfProductsToDisplay, setNumberOfProductsToDisplay] =
-    useState<number>(numberOfProductsToFetch);
+    useState<number>(initialNumberOfProducts);
 
   const [sortBy, setSortBy] = useState<string>(ProductOrderField.Name);
 

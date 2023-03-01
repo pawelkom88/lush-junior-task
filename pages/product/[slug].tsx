@@ -2,7 +2,7 @@ import { useProductBySlugQuery, GetProductsDocument, GetProductsQuery } from "@g
 import Spinner from "@components/spinner/Spinner";
 import Modal from "@components/modal/Modal";
 import Product from "@components/product/Product";
-import { numberOfProductsToFetch } from "constants/constants";
+import { initialNumberOfProducts } from "constants/constants";
 import { client } from "../client/client";
 
 export default function ProductPage({ slug }: { slug: string }) {
@@ -21,7 +21,7 @@ export async function getStaticPaths() {
   const { data } = await client.query<GetProductsQuery>({
     query: GetProductsDocument,
     variables: {
-      first: numberOfProductsToFetch,
+      first: initialNumberOfProducts,
     },
   });
 
