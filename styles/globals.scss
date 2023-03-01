@@ -71,18 +71,6 @@ select {
   @include transition(all, 0.4s, ease-in-out);
 }
 
-// SCREEN READERS
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-
 .select {
   color: $brand-secondary;
   background-color: $brand-primary;
@@ -99,6 +87,33 @@ select {
     background-color: $brand-secondary;
     font-weight: bold;
   }
+}
+
+// SCREEN READERS
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.skip-to-content-link {
+  position: absolute;
+  left: 50%;
+  height: 30px;
+  background: #2326e7;
+  color: $brand-secondary;
+  padding: 8px;
+  transform: translateY(-170%);
+  transition: transform 0.3s;
+}
+
+.skip-to-content-link:focus {
+  transform: translateY(0%);
 }
 
 // SPECIAL CLASS
