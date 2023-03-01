@@ -18,7 +18,10 @@ export default function Navigation({
 
   return (
     <div className={classes.wrapper}>
-      <header className={`${classes.header}`}>
+      <header className={`${classes.header} `}>
+        <a className="skip-to-content-link" href="#main">
+          Skip to content
+        </a>
         <NavLeft />
         <NavCenter showSearchField={showSearchField} />
         <div className={classes["navigation-right"]}>

@@ -11,9 +11,10 @@ export default function ProductSortSelect({
     <>
       Sort by:
       <select
+      
         className="select"
         onChange={(e: React.ChangeEvent<{ value: string }>) => onSortBy(e.target.value)}
-        title="select"
+        title="Sort by"
         value={sortBy}>
         {NameOfSortingCriteriasArray.map(sortedBy => {
           return (

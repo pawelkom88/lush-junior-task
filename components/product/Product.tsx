@@ -30,7 +30,7 @@ export default function Product({ product }: ProductBySlugQuery) {
     : notAvailable;
 
   return (
-    <section>
+    <section id="main">
       <Link className={classes["homepage-link"]} href="/">
         Back to products
       </Link>

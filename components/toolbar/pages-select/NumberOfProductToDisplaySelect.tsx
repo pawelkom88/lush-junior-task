@@ -15,7 +15,7 @@ export default function NumberOfProductToDisplaySelect({
         onChange={(e: React.ChangeEvent<{ value: string }>) =>
           onSetNumberOfProductsToDisplay(+e.target.value)
         }
-        title="select"
+        title="Products per page"
         value={numberOfProductsToDisplay}>
         {NumberOfProductsToDisplayArray.map(number => {
           return (

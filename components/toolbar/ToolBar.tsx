@@ -1,5 +1,5 @@
-import NumberOfProductToDisplaySelect from "@components/pages-select/NumberOfProductToDisplaySelect";
-import ProductSortSelect from "@components/sorting-element/ProductSortSelect";
+import NumberOfProductToDisplaySelect from "@components/toolbar/pages-select/NumberOfProductToDisplaySelect";
+import ProductSortSelect from "@components/toolbar/sorting-element/ProductSortSelect";
 import { ToolBarProps } from "types/types";
 import classes from "./ToolBar.module.scss";
 
