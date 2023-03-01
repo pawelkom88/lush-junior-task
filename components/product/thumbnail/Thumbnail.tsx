@@ -1,19 +1,17 @@
 import Image from "next/image";
 import classes from "./Thumbnail.module.scss";
-import { playButton } from "constants/constants";
+import  playButton  from "@root/public/icons/play-button.png";
 import { ThumbnailProps } from "types/types";
 
-export default function Thumbnail({ media, alt, onSelectedImage }: ThumbnailProps) {
-  let youtubeUrl;
+export default function Thumbnail({ media = [], alt, onSelectedImage }: ThumbnailProps) {
 
   return (
     <>
       <div className={classes["product-image__mini"]}>
         {media?.map(({ url }) => {
           if (url.includes("youtube")) {
-            youtubeUrl = url as string;
             return (
-              <a key={url} href={youtubeUrl} target="_blank" rel="noreferrer">
+              <a key={url} href={url} target="_blank" rel="noreferrer">
                 <Image width={50} height={50} src={playButton} alt={alt} />
                 <span className="sr-only">Link to youtube video</span>
               </a>
