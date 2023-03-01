@@ -2,38 +2,39 @@ import fbIcon from "../public/icons/facebook.svg";
 import whatsappIcon from "../public/icons/whatsapp.svg";
 import instagramIcon from "../public/icons/instagram.svg";
 import linkedinIcon from "../public/icons/linkedin.svg";
-import fallback from "../public/images/PRODUCT-UNAVAILABLE.png";
-import playBtn from "../public/icons/play-button.png";
+import fallbackImage from "../public/images/PRODUCT-UNAVAILABLE.png";
 import { StaticImageData } from "next/image";
+import { ProductOrderField } from "@generated/api";
 
-export const numberOfProductsToFetch: number = 20;
-
+export const initialNumberOfProducts: number = 20;
 export const currentYear: number = new Date().getFullYear();
+export const productUnavailable: StaticImageData = fallbackImage;
+export const notAvailable: string = "Not available";
+export const productsPerPageOptions: number[] = [20, 50, 100];
+export const sortByOptions: ProductOrderField[] = [
+  ProductOrderField.Name,
+  ProductOrderField.Price,
+  ProductOrderField.Rating,
+];
 
-export const productUnavailable: StaticImageData = fallback;
-
-export const NumberOfProductsToDisplayArray: number[] = [20, 30, 40, 50];
-
-export const NameOfSortingCriteriasArray: string[] = ["NAME", "PRICE", "RATING"];
-
-interface navLinks {
+interface Link {
   id: number;
   name: string;
   href: string;
 }
-
-export const navLinks: navLinks[] = [
-  { id: 1, name: "Hot list", href: "hot-list" },
-  { id: 2, name: "New", href: "new-products" },
-  { id: 3, name: "Sale", href: "sale" },
-  { id: 4, name: "Best sellers", href: "best-sellers" },
-];
 
 interface SocialMediaConfig {
   id: number;
   src: any;
   alt: string;
 }
+
+export const navLinks: Link[] = [
+  { id: 1, name: "Hot list", href: "hot-list" },
+  { id: 2, name: "New", href: "new-products" },
+  { id: 3, name: "Sale", href: "sale" },
+  { id: 4, name: "Best sellers", href: "best-sellers" },
+];
 
 export const socialMediaConfig: SocialMediaConfig[] = [
   {
@@ -58,56 +59,20 @@ export const socialMediaConfig: SocialMediaConfig[] = [
   },
 ];
 
-interface FooterSectionLinks {
-  id: number;
-  name: string;
-  href: string;
+export const leftFooterSectionLinks: Link[] = [
+  "Size Guide",
+  "Payment Options",
+  "Shipping & Delivery",
+  "Track Your Order",
+].map(buildSectionLinks);
+
+export const rightFooterSectionLinks: Link[] = [
+  "About Us",
+  "Careers",
+  "Contact us",
+  "Investors",
+].map(buildSectionLinks);
+
+function buildSectionLinks(name: string, index: number): Link {
+  return { id: index + 1, href: "/", name };
 }
-
-export const leftFooterSectionLinks: FooterSectionLinks[] = [
-  {
-    id: 1,
-    name: "Size Guide",
-    href: "/",
-  },
-  {
-    id: 2,
-    name: "Payment Options",
-    href: "/",
-  },
-  {
-    id: 3,
-    name: "Shipping & Delivery",
-    href: "/",
-  },
-  {
-    id: 4,
-    name: "Track Your Order",
-    href: "/",
-  },
-];
-
-export const rightFooterSectionLinks: FooterSectionLinks[] = [
-  {
-    id: 1,
-    name: "About Us",
-    href: "/",
-  },
-  {
-    id: 2,
-    name: "Careers",
-    href: "/",
-  },
-  {
-    id: 3,
-    name: "Contact us",
-    href: "/",
-  },
-  {
-    id: 4,
-    name: "Investors",
-    href: "/",
-  },
-];
-
-export const notAvailable: string = "Not available";

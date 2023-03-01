@@ -1,4 +1,4 @@
-import { NumberOfProductsToDisplayArray } from "@root/constants/constants";
+import { productsPerPageOptions } from "@root/constants/constants";
 
 export default function NumberOfProductToDisplaySelect({
   numberOfProductsToDisplay,
@@ -17,7 +17,7 @@ export default function NumberOfProductToDisplaySelect({
         }
         title="Products per page"
         value={numberOfProductsToDisplay}>
-        {NumberOfProductsToDisplayArray.map(number => {
+        {productsPerPageOptions.map(number => {
           return (
             <option key={number} value={number}>
               {number}
