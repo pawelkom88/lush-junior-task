@@ -1,18 +1,12 @@
 import Star from "@root/public/icons/Star";
 
-export default function Rating({ productRating }: { productRating: null | undefined | number }) {
-  let rating;
-
-  if (productRating) {
-    rating = productRating > 5 ? 5 : Math.ceil(productRating);
-  }
-
-  const customerRating: number[] = new Array(rating).fill(0);
+export default function Rating({ productRating = 0 }: { productRating: number }) {
+  const customerProductRating: number = Math.ceil(Math.min(productRating, 5));
 
   return (
     <div style={{ margin: ".5rem" }}>
-      {(rating as number) ? (
-        customerRating.map((_, index) => <Star key={index} />)
+      {customerProductRating ? (
+        new Array(customerProductRating).fill(null).map((_, index) => <Star key={index} />)
       ) : (
         <p>This item has not been rated yet</p>
       )}
