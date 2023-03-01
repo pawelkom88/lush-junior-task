@@ -10,6 +10,7 @@ export default function SearchBar({
   onShowSearchField,
 }: SearchBarProps) {
   const router = useRouter();
+
   const [value, setValue] = useState<string>("");
 
   function onSubmit(e: React.FormEvent<EventTarget>) {
@@ -43,7 +44,7 @@ export default function SearchBar({
       />
       <input className={classes["hidden-input"]} type="submit" />
       {value && (
-        <button type="button" title="close" className={classes["clear-input"]} onClick={resetQuery}>
+        <button type="button" title="clear input field" className={classes["clear-input"]} onClick={resetQuery}>
           <ClearInputFieldIcon />
         </button>
       )}
