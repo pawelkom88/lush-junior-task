@@ -53,6 +53,8 @@ I love writing CSS and SASS/SCSS give you extra powers. All scss files live toge
 - Typescript
 Superset of Java Script is definitely the future of web development. It helped me avoid silly bugs and provided a handy auto complete.
 
+<a href='https://www.typescriptlang.org/docs/'>docs</a>
+
 ## Challenges
 
 The biggest challenge was to familiarize myself with Apollo and GraphQL. These are new technologies to me, but thanks to great documentation and <a href='https://frontendmasters.com/courses/client-graphql-react/apollo-client-api-querying/'>this course</a> learning process was a pleasure.
