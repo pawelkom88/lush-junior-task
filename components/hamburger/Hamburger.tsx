@@ -7,7 +7,7 @@ export default function Hamburger() {
   return (
     <button
       type="button"
-      className={`${isMenuOpen ? classes.active : ""} ${classes.hamburger} `}
+      className={`${classes.hamburger} ${isMenuOpen ? classes.active : ""}`.trim()}
       onClick={() => setIsMenuOpen(!isMenuOpen)}>
       <span className="sr-only">Hamburger menu</span>
     </button>

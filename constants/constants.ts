@@ -12,8 +12,6 @@ export const currentYear: number = new Date().getFullYear();
 
 export const productUnavailable: StaticImageData = fallback;
 
-export const playButton: StaticImageData = playBtn;
-
 export const NumberOfProductsToDisplayArray: number[] = [20, 30, 40, 50];
 
 export const NameOfSortingCriteriasArray: string[] = ["NAME", "PRICE", "RATING"];

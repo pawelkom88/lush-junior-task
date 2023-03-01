@@ -31,7 +31,7 @@ export default function Footer() {
             })}
           </div>
           <div className={classes["col-xl"]}>
-            <Image src={footerAd} width={400} height={160} alt="asd" />
+            <Image src={footerAd} width={400} height={160} alt="footer ad promotion" />
           </div>
         </div>
         <div className={classes["footer-bottom"]}>

@@ -1,7 +1,7 @@
 import classes from "./Pagination.module.scss";
 
 export default function Pagination({
-  onLoadMore: onFetchMoreProducts,
+  onLoadMore,
   itemCount,
   totalCount,
 }: {
@@ -11,7 +11,7 @@ export default function Pagination({
 }) {
   return (
     <nav className={classes.pagination}>
-      <button className={`${classes["pagination-btn"]} button`} onClick={onFetchMoreProducts}>
+      <button className={`${classes["pagination-btn"]} button`} onClick={onLoadMore}>
         Load More
       </button>
       {itemCount && totalCount && (
