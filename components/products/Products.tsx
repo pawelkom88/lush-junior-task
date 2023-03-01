@@ -41,7 +41,7 @@ export default function Products({ keyword, numberOfProductsToDisplay, sortBy }:
     };
 
     return (
-      <section id="products">
+      <section id="main">
         <ul className={classes.products}>
           {products.map(({ node: product }) => {
             return <ProductCard key={product.id} product={product} />;
