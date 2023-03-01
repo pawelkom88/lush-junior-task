@@ -15,7 +15,7 @@
 Posh is a fully responsive fake e-commerce store built as result of given task by LUSH DIGITAL E-COMMERCE TEAM.
 
 - Folders and files architecture is pretty standard for this type of projects. 
-<img src="https://github.com/pawelkom88/lush-junior-task/blob/main/posh-logo.png?raw=true" alt="Outletity logo" width="300" height="300"/>
+<img src="https://github.com/pawelkom88/lush-junior-task/blob/main/tree.png?raw=true" width="200" height="400"/>
 
 In my workflow I have used:
 - Feature branches and Pull Requests with descriptive commits
