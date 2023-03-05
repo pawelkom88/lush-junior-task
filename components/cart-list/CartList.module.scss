@@ -1,0 +1,18 @@
+@import "@styles/mixins";
+@import "@styles/variables";
+
+.wrapper {
+  min-height: 60vh;
+  margin: 10rem 0 5rem 0;
+}
+
+.cart-item {
+  @include flex(space-between, center);
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.line {
+  border-bottom: 1px solid $brand-primary;
+}

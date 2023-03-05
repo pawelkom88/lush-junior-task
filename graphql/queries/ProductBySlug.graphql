@@ -4,6 +4,10 @@ query ProductBySlug($slug: String) {
     name
     description
     rating
+    variants {
+      id
+      name
+    }
     category {
       name
     }

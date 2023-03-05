@@ -1,0 +1,28 @@
+mutation ProductAddVariantToCart($checkoutToken: UUID!, $variantId: ID!) {
+  checkoutLinesAdd(token: $checkoutToken, lines: [{ quantity: 1, variantId: $variantId }]) {
+    checkout {
+      id
+      lines {
+        id
+        quantity
+      }
+    }
+    errors {
+      message
+    }
+  }
+}
+# mutation ProductAddVariantToCart($checkoutToken: UUID!, $quantity: Int!, $variantId: ID!) {
+#   checkoutLinesAdd(token: $checkoutToken, lines: [{ quantity: $quantity, variantId: $variantId }]) {
+#     checkout {
+#       id
+#       lines {
+#         id
+#         quantity
+#       }
+#     }
+#     errors {
+#       message
+#     }
+#   }
+# }
