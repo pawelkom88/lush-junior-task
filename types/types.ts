@@ -1,3 +1,12 @@
+import { CheckoutFetchByTokenQuery } from "./../generated/api";
+import { ApolloError } from "@apollo/client/errors";
+
+export interface CartCtx {
+  data: CheckoutFetchByTokenQuery | undefined;
+  loading: boolean;
+  error: ApolloError | undefined;
+}
+
 export type Props = {
   children: React.ReactNode;
 };
