@@ -1,0 +1,9 @@
+@import "@styles/mixins";
+
+.checkout {
+  @include flex(space-between, center);
+
+  &-total {
+    font-weight: bold;
+  }
+}
