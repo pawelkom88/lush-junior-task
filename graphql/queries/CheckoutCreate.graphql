@@ -1,0 +1,11 @@
+mutation CheckoutCreate {
+  checkoutCreate(input: { channel: "uk", email: "johnsmith@yahoo.co.uk", lines: [] }) {
+    checkout {
+      token
+    }
+    errors {
+      field
+      code
+    }
+  }
+}

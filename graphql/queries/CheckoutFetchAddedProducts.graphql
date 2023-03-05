@@ -1,0 +1,9 @@
+query CheckoutFetchAddedProducts($checkoutToken: UUID!) {
+  checkout(token: $checkoutToken) {
+    id
+    email
+    lines {
+      id
+    }
+  }
+}
