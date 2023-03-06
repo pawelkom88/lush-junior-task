@@ -39,7 +39,7 @@ export default function Checkout() {
             <Button onClick={() => console.log("Money money money")}>Payment</Button>
           </div>
         ) : (
-          ""
+          <p className={classes["checkout-empty"]}>Basket is empty</p>
         )}
       </Layout>
     );
