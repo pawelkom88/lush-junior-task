@@ -13,7 +13,6 @@
 }
 
 @mixin link-hover {
-  color: $brand-teriary;
   text-decoration: underline;
   transition: color 0.2s ease-in-out;
 }

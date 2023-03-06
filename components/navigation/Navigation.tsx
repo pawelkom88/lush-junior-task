@@ -1,7 +1,6 @@
 import { useState } from "react";
 import SearchBar from "@components/search-bar/SearchBar";
 import ShoppingBagIcon from "@root/public/icons/ShoppingBagIcon";
-import SrButton from "@components/sr-button/SrButton";
 import SearchIcon from "@components/search-icon/SearchIcon";
 import NavLeft from "./nav-left/NavLeft";
 import NavBottom from "./nav-bottom/NavBottom";
@@ -32,10 +31,8 @@ export default function Navigation({
             isDisplayed={showSearchField}
           />
           <SearchIcon onShowSearchField={() => setShowSearchField(true)} />
-          <SrButton text="Cart">
-            <ShoppingBagIcon size={24} />
-            <span className={classes.bag} data-count={checkoutProductsTotal}></span>
-          </SrButton>
+          <ShoppingBagIcon size={24} />
+          <span className={classes.bag} data-count={checkoutProductsTotal}></span>
         </div>
       </header>
       <NavBottom />

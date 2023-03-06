@@ -9,9 +9,9 @@ export default function ProductSortSelect({
 }) {
   return (
     <>
-      Sort by:
+      <label htmlFor="sortBy">Sort by:</label>
       <select
-      
+        id="sortBy"
         className="select"
         onChange={(e: React.ChangeEvent<{ value: string }>) => onSortBy(e.target.value)}
         title="Sort by"

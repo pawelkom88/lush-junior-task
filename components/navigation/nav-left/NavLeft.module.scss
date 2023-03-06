@@ -17,6 +17,7 @@
   }
 
   &-item:hover {
+    color: $brand-primary;
     @include link-hover;
   }
 }

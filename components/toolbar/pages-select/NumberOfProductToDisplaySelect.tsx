@@ -9,8 +9,9 @@ export default function NumberOfProductToDisplaySelect({
 }) {
   return (
     <>
-      Products per page:
+      <label htmlFor="products">Products per page:</label>
       <select
+        id="products"
         className="select"
         onChange={(e: React.ChangeEvent<{ value: string }>) =>
           onSetNumberOfProductsToDisplay(+e.target.value)

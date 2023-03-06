@@ -4,7 +4,9 @@ import classes from "./SubscriptionForm.module.scss";
 export default function SubscriptionForm({}) {
   return (
     <form className={classes["footer-form"]}>
-      <label htmlFor="signup form"></label>
+      <label htmlFor="signup form">
+        Join our newsletter
+      </label>
       <input
         id="newsletter signup form"
         name="signup form"

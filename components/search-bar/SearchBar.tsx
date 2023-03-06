@@ -31,7 +31,7 @@ export default function SearchBar({
       className={`${classes.form} ${isDisplayed ? classes.onMobile : classes.onDesktop}`}
       onSubmit={onSubmit}>
       <label className="sr-only" htmlFor="search">
-        Search <input type="text" />
+        Search
       </label>
       <input
         id="search"
@@ -44,7 +44,11 @@ export default function SearchBar({
       />
       <input className={classes["hidden-input"]} type="submit" />
       {value && (
-        <button type="button" title="clear input field" className={classes["clear-input"]} onClick={resetQuery}>
+        <button
+          type="button"
+          title="clear input field"
+          className={classes["clear-input"]}
+          onClick={resetQuery}>
           <ClearInputFieldIcon />
         </button>
       )}
