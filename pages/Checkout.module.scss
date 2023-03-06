@@ -6,4 +6,12 @@
   &-total {
     font-weight: bold;
   }
+
+  &-empty {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+  }
 }
