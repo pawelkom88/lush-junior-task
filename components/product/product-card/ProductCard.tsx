@@ -6,7 +6,7 @@ import { productUnavailable } from "constants/constants";
 import { Product, Money } from "@generated/api";
 
 export default function ProductCard({ product }: { product: Product }) {
-  const { name, rating, thumbnail, category, slug, pricing } = product || [];
+  const { name, rating = 0, thumbnail, category, slug, pricing } = product || [];
 
   const grossMoney: Money | undefined = pricing?.priceRange?.start?.gross;
 
