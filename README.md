@@ -63,7 +63,7 @@ The biggest challenge was to familiarize myself with Apollo and GraphQL. These a
 I always try to make my sites as accessible as possible.It takes extra time to implement them, but it is worth it. I have used simple colors that provide high contract, readable fonts, easily focusable, semantic HTML tags and aria-labels. The site has been tested using built in Narrator in Windows 10.
 
 - Code readability
-I tried to keep my components small and use descriptive, straight to the point names. I did the same with variables and functions. I believe I have achieved this goal and additional comments are not required.
+I tried to keep my components small and use descriptive, straight to the point names. I did the same with variables and functions. I believe I have achieved this goal and additional comments is not required.
 
 
 
