@@ -17,6 +17,10 @@
   margin: 0 auto;
   padding: 0 2rem;
   z-index: 2;
+
+  @media (max-width: $mobile) {
+    padding: 0 1rem;
+  }
 }
 
 .navigation-right {
@@ -33,7 +37,7 @@
     content: attr(data-count);
     position: absolute;
     top: 0.3rem;
-    right: .7rem;
+    right: 0.7rem;
 
     width: 1.4rem;
     height: 1.4rem;
