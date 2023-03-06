@@ -1,7 +1,8 @@
+import { Maybe } from "@generated/api";
 import Star from "@root/public/icons/Star";
 
-export default function Rating({ productRating = 0 }: { productRating: number }) {
-  const customerProductRating: number = Math.ceil(Math.min(productRating, 5));
+export default function Rating({ productRating }: { productRating: Maybe<number> }) {
+  const customerProductRating: number = Math.ceil(Math.min(productRating as number, 5));
 
   return (
     <div style={{ margin: ".5rem" }}>
