@@ -2,6 +2,7 @@ export default function ClearInputFieldIcon() {
   return (
     <svg
       role="img"
+      aria-label="clear input field button"
       width={20}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24">
