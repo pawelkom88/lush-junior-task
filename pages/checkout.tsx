@@ -17,16 +17,14 @@ export default function Checkout() {
   if (loading) return <Spinner />;
   if (error) return <Modal>Could not fetch data. Please try again later.</Modal>;
 
-  if (!data || !data.checkout) return null;
-
   if (data) {
     const products: any[] = data.checkout?.lines || [];
-    const productCurrency: string = data.checkout.totalPrice?.gross?.currency ?? "";
+    const productCurrency: string = data.checkout?.totalPrice?.gross?.currency ?? "";
 
-    const checkoutTotal = products?.reduce((accumulator: number, product: CheckoutLine) => {
+    const checkoutTotal = products.reduce((accumulator: number, product: CheckoutLine) => {
       const productPrice: number = product?.totalPrice?.gross?.amount ?? 0;
       return accumulator + productPrice;
-    }, 0 as number);
+    }, 0);
 
     return (
       <Layout>
