@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import Hamburger from "@components/hamburger/Hamburger";
+import Hamburger from "@components/navigation/hamburger/Hamburger";
 import classes from "./NavCenter.module.scss";
 
 export default function NavCenter({ showSearchField }: { showSearchField: boolean }) {

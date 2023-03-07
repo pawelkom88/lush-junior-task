@@ -1,7 +1,7 @@
 import { useState } from "react";
-import SearchBar from "@components/search-bar/SearchBar";
+import SearchBar from "@components/navigation/search-bar/SearchBar";
 import ShoppingBagIcon from "@root/public/icons/ShoppingBagIcon";
-import SearchIcon from "@components/search-icon/SearchIcon";
+import SearchIcon from "@components/navigation/search-bar/search-icon/SearchIcon";
 import NavLeft from "./nav-left/NavLeft";
 import NavBottom from "./nav-bottom/NavBottom";
 import NavCenter from "./nav-center/NavCenter";

@@ -1,7 +1,6 @@
 import {
   OrderDirection,
   PageInfo,
-  ProductOrderField,
   useGetPartialProductsDataQuery,
 } from "@generated/api";
 import ProductCard from "@components/product/product-card/ProductCard";
@@ -17,7 +16,7 @@ export default function Products({ keyword, numberOfProductsToDisplay, sortBy }:
       first: numberOfProductsToDisplay,
       filter: { search: keyword },
       sortBy: {
-        field: sortBy as ProductOrderField,
+        field: sortBy,
         direction: OrderDirection.Asc,
       },
     },
