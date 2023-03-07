@@ -1,4 +1,4 @@
-import { CheckoutFetchByTokenQuery } from "./../generated/api";
+import { CheckoutFetchByTokenQuery, ProductOrderField } from "./../generated/api";
 import { ApolloError } from "@apollo/client/errors";
 
 export interface CartCtx {
@@ -37,7 +37,7 @@ export interface ToolBarProps {
 export interface ProductsProps {
   keyword: string;
   numberOfProductsToDisplay: number;
-  sortBy: string;
+  sortBy: ProductOrderField;
 }
 
 export interface ProductDescription {

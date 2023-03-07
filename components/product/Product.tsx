@@ -18,6 +18,12 @@ export default function Product({ product }: ProductBySlugQuery) {
   const [token] = useLocalStorage("token");
   const [addProductToCart] = useProductAddVariantToCartMutation();
 
+  const { name = "", media, description, rating = 0, pricing, weight, isAvailable } = product || {};
+
+  const [selectedImage, setSelectedImage] = useState<string | StaticImageData>(
+    media?.[0]?.url || productUnavailable
+  );
+
   const selectedVariantID: string = product?.variants?.[0]?.id ?? "";
 
   async function onAddToCart() {
@@ -25,12 +31,6 @@ export default function Product({ product }: ProductBySlugQuery) {
       variables: { checkoutToken: token, variantId: selectedVariantID as string },
     });
   }
-
-  const { name = "", media, description, rating, pricing, weight, isAvailable } = product || {};
-
-  const [selectedImage, setSelectedImage] = useState<string | StaticImageData>(
-    media?.[0]?.url || productUnavailable
-  );
 
   const productDescription: ProductDescription[] = JSON.parse(description)?.blocks;
 
@@ -56,7 +56,7 @@ export default function Product({ product }: ProductBySlugQuery) {
         </div>
         <div className={classes["product-details"]}>
           <h1 className={classes["product-details__name"]}>{name}</h1>
-          <Rating productRating={rating ?? 0} />
+          <Rating productRating={rating} />
           <div className={classes["product-details__info"]}>
             <strong>{productAmountWithCurrency}</strong>
             <strong>
@@ -72,10 +72,10 @@ export default function Product({ product }: ProductBySlugQuery) {
             {isAvailable ? (
               <span className={classes["product-available"]}>in stock</span>
             ) : (
-              <span className={classes['product-unavailable']}>unavailable</span>
+              <span className={classes["product-unavailable"]}>unavailable</span>
             )}
           </p>
-          {productPrice?.amount ? <Button onClick={onAddToCart}>Add to cart</Button> : ""}
+          {productPrice?.amount ? <Button onClick={onAddToCart}>Add to cart</Button> : null}
         </div>
       </article>
     </section>

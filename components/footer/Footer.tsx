@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import SubscriptionForm from "@components/subscription-form/SubscriptionForm";
-import SocialMedia from "@components/social-media/SocialMedia";
-import Copyright from "@components/copyright/Copyright";
+import SubscriptionForm from "@components/footer/subscription-form/SubscriptionForm";
+import SocialMedia from "@components/footer/social-media/SocialMedia";
+import Copyright from "@components/footer/copyright/Copyright";
 import footerAd from "@root/public/images/footer-ad.webp";
 import { leftFooterSectionLinks, rightFooterSectionLinks } from "constants/constants";
 import classes from "./Footer.module.scss";
