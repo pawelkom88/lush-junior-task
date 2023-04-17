@@ -37,7 +37,7 @@ export interface ToolBarProps {
 export interface ProductsProps {
   keyword: string;
   numberOfProductsToDisplay: number;
-  sortBy: ProductOrderField;
+  sortBy: ProductOrderField | string;
 }
 
 export interface ProductDescription {
