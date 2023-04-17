@@ -10,7 +10,7 @@ import { createSanitizedMarkup } from "utils/utils";
 import { ProductBySlugQuery, useProductAddVariantToCartMutation } from "@generated/api";
 import { ProductDescription } from "types/types";
 import { useLocalStorage } from "react-use";
-import classes from "./product.module.scss";
+import classes from "./Productt.module.scss";
 
 type ProductPrice = { amount: number; currency: string } | undefined;
 
